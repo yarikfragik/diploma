@@ -1,0 +1,30 @@
+.titlee{
+    padding-left: 20px;
+    padding:5%;
+    margin-top:10%;
+
+}
+.head{
+    
+    padding-left: 150px;
+}
+#imag{
+    width: 110px;
+}
+#icon{
+    margin-right: 5px;
+}
+label{
+font-weight:bold;
+}
+
+@media screen and (max-width:480px) {
+    #imag{
+        position: relative;
+        width: 70px;
+    }
+    .head{
+        padding-left: 0px;
+        padding-right: 0px;
+    }
+}

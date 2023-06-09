@@ -1,0 +1,73 @@
+{% extends 'webscrap/basic.html' %}
+{%  block title  %} this is home  {%  endblock %}
+
+{% block body %}
+<div class="container">
+  <div class="row">
+    <div class="col-lg-4">
+      <img srcset="https://softr-prod.imgix.net/applications/e99d7d48-8e8b-4b0e-bd36-42090f18eb0d/assets/0838593d-1a01-4377-a652-170e7da0597e.svg" style="height: 100%; width: 100%;">
+    </div>
+    <div class="col-lg-8" class="box">
+      <div class="col-lg-12 bg-dark text-light titlee">
+        <h1 class="head">Looking for a job!</h1>
+        <em class="head"> You have come to the right place</em>
+        <a href="#jobs" class="btn btn-outline-primary">Load More</a>
+      </div>
+    </div>
+  </div>
+</div>
+
+<div class="container" id="jobs" style="box-shadow: 0px 0px 20px 1px lightgray; padding-bottom: 10px;">
+  <div class="row gy-3">
+
+    {% if is_no_data %}
+      <div class="col-lg-12 text-center text-secondary" style="font-size: 45px; font-weight: bold; padding:5%">
+        No Data Available!
+      </div>
+    {% else %}
+
+    {% if personal %}
+      <h3>Personal</h3>
+      {% for item in personal %}
+      <div class="col-sm-6 col-md-4 col-lg-3">
+        <div class="card">
+          <div class="card-body">
+            <h5 class="card-title">{{item.0.company_name}}</h5>
+            <h6 class="card-subtitle mb-2">{{item.0.title}} </h6>
+            <h6 class="card-subtitle mb-2 text-muted">{{item.1}} </h6>
+            <a href="{{item.0.link}}" target="_blank" class="card-link">Apply link</a>
+          </div>
+        </div>
+      </div>
+        {% if forloop.counter|divisibleby:4%}
+          </div><div class="row gy-3 my-5">
+        {%endif%}
+      {%endfor%}
+    {% endif %}
+
+  {% if alljobs %}
+  <h3>All Jobs</h3>
+    {% for item in alljobs %}
+    <div class="col-sm-6 col-md-4 col-lg-3">
+      <div class="card">
+        <div class="card-body">
+            <h5 class="card-title">{{item.0.company_name}}</h5>
+            <h6 class="card-subtitle mb-2">{{item0.title}} </h6>
+            <h6 class="card-subtitle mb-2 text-muted">{{item.1}} </h6>
+            <a href="{{item.0.link}}" target="_blank" class="card-link">Apply link</a>
+          </div>
+      </div>
+    </div>
+        {% if forloop.counter|divisibleby:4%}
+          </div><div class="row gy-3 my-5">
+        {%endif%}
+    {%endfor%}
+  {% endif %}
+  {% endif %}
+
+  </div>
+</div>
+
+
+
+{%  endblock %}

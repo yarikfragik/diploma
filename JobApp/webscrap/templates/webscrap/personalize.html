@@ -1,0 +1,38 @@
+{% extends 'webscrap/basic.html' %}
+{%  block title  %} this is personalization  {%  endblock %}
+{% block body %}
+      <!-----------------------------------------------------form--------------------------------------------------->
+      <div class="container" style="padding-top: 20px;">
+        <div class="col-lg-12" style="box-shadow: 0px 0px 5px 1px lightgray; padding: 10px; border-radius: 10px;">
+        <div class="row my-5">
+          <div class="col-lg-6">{% load static %}
+            <h3> Personalize</h3><em><p>personalize here! and relax!!!.. we will handle all the stuff.</p></em>
+            <img src="{% static 'Meditation-Man-Working.jpg'%}" style="width:100%;">
+
+          </div>
+          <!-- Meditation-Man-Working.jpg -->
+          <div class="col-lg-6 mt-5">
+            <form action="" method="post">{% csrf_token %}
+                <div class="mb-3">
+                  <label for="exampleInputEmail1">Email address</label>
+                  <input type="email" class="form-control" id="exampleInputEmail1" name="email" aria-describedby="emailHelp">
+                  <small id="emailHelp" class="form-text text-muted">We'll never share your email with anyone else.</small>
+                </div>
+                <div class="mb-3">
+                    <label for="exampleDataList" class="form-label">Skills</label>
+                    <input class="form-control" list="datalistOptions" name="skill" id="exampleDataList" placeholder="enter keywords">
+                        <datalist id="datalistOptions">
+                            <option value="Django">
+                            <option value="Flask">
+                            <option value="Python">
+                            <option value="JavaScript">
+                            <option value="Tkinter">
+                        </datalist>
+                  </div>
+                <button type="submit" class="btn btn-dark">Submit</button>
+              </form>
+          </div>
+        </div>
+        </div>
+      </div>
+      {%  endblock %}

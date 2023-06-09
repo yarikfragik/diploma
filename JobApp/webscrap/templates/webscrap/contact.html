@@ -1,0 +1,35 @@
+{% extends 'webscrap/basic.html' %}
+{%  block title  %} this is contact  {%  endblock %}
+{% block body %}
+<!------------------------------------------------Form------------------------------------->
+<div class="container" style="padding-top: 0px; margin-top: 0px;">
+    <div class="row">
+      <div class="col-lg-6">
+        {%load static%}
+        <h2 style="padding-left: 100px; position: relative; top:80px">Please share your query here!!</h2>
+        <img src="{% static 'contact2.jpg'%}" style="width:100%; padding-top: 100px;">
+      </div>
+      <div class="col-lg-6" style="margin-top: 150px;">
+          <form action="" method="post">{% csrf_token %}
+              <div class="mb-3">
+                <label for="exampleInputEmail1" class="form-label" name="username">Username</label>
+                <input type="text" class="form-control" id="username" name="username">
+              </div>
+              <div class="mb-3">
+                <label for="exampleInputemail1" class="form-label" name="email">Email</label>
+                <input type="email" class="form-control" id="exampleInputemail1" placeholder="Enter email" name="email" >
+              </div>
+              <div class="mb-3">
+               <label>Query </label><textarea  class="form-control" name="query" >
+
+                </textarea>
+              </div>
+              <button type="submit" class="btn btn-dark">Submit</button>
+            </form>
+      </div>
+    </div>
+  </div>
+
+
+
+{%  endblock %}

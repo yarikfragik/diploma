@@ -1,0 +1,32 @@
+{% extends 'webscrap/basic.html' %}
+{%  block title  %} this is request_tag page  {%  endblock %}
+{% block body %}
+<!-----------------------------------------------------form--------------------------------------------------->
+<div class="container">
+    <div class="row my-5">
+      <div class="col-lg-6">{% load static %}
+        <h2>Please enter your skills here!</h2>
+        <em><p>Enter your skills here so that we can add it in our database and after that we will notify you when jobs of your skills been added.</p></em>
+        <img src="{% static '7_generated.jpg'%}" style="width:100%;">
+      </div>
+
+      <div class="col-lg-6" style="margin-top: 100px;" >
+        <form action="" method="post">{% csrf_token %}
+            <div class="mb-3" style="margin-top: 10px;">
+                <label for="exampleDataList" class="form-label">Skills</label>
+                <input class="form-control" name="skill" list="datalistOptions" id="exampleDataList" placeholder="enter keywords">
+                    <datalist id="datalistOptions">
+                        <option value="Django">
+                        <option value="Flask">
+                        <option value="Python">
+                        <option value="JavaScript">
+                        <option value="Tkinter">
+                    </datalist>
+              </div>
+            <button type="submit" class="btn btn-dark">Submit</button>
+          </form>
+      </div>
+
+    </div>
+  </div>
+{%  endblock %}

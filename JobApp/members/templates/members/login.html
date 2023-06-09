@@ -1,0 +1,31 @@
+{% extends 'webscrap/basic.html' %}
+{%  block title  %} this is login  {%  endblock %}
+
+{% block body %}
+<!------------------------------------------------Form------------------------------------->
+<div class="container" style="padding-top: 0px; margin-top: 0px;">
+  <div class="row">
+    <div class="col-lg-6">
+      {%load static%}
+      <h2 style="padding-left: 100px; position: relative; top:80px">Welcome Back!!</h2>
+      <img src="{% static 'login.jpg'%}" style="width:100%;">
+    </div>
+    <div class="col-lg-6" style="margin-top: 150px;">
+        <form action="" method="post">{% csrf_token %}
+            <div class="mb-3">
+              <label for="exampleInputEmail1" class="form-label" name="username">Username</label>
+              <input type="text" class="form-control" id="username" name="username">
+            </div>
+            <div class="mb-3">
+              <label for="exampleInputPassword1" class="form-label" name="password">Password</label>
+              <input type="password" class="form-control" id="exampleInputPassword1" placeholder="Enter Password" name="password" >
+            </div>
+            <button type="submit" class="btn btn-success">Submit</button>
+          </form>
+    </div>
+  </div>
+</div>
+
+{%  endblock %}
+
+    
